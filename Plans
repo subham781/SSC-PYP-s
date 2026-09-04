@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Selling Plans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .pricing-container {
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .pricing-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .pricing-container p.subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .plans-grid {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 40px 30px;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Highlighted Popular Plan */
+        .plan-card.popular {
+            border: 2px solid #4f46e5;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4f46e5;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .plan-header p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 25px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #6b7280;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .features-list li.disabled {
+            color: #9ca3af;
+        }
+
+        .features-list li.disabled::before {
+            content: "✕";
+            color: #ef4444;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .plan-card.popular .cta-btn {
+            background-color: #4f46e5;
+            color: #ffffff;
+        }
+
+        .cta-btn:hover {
+            background-color: #e5e7eb;
+        }
+
+        .plan-card.popular .cta-btn:hover {
+            background-color: #4338ca;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .plans-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .plan-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pricing-container">
+        <h1>Choose Your Selling Plan</h1>
+        <p class="subtitle">Transparent pricing tailored to scale with your business needs.</p>
+
+        <div class="plans-grid">
+            <!-- Starter Plan -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Starter</h3>
+                    <p>Ideal for freelancers and personal projects.</p>
+                    <div class="price">$9<span> / month</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>1 Active Project</li>
+                    <li>Basic Analytics</li>
+                    <li>24-hour Support Response</li>
+                    <li class="disabled">Custom Domain Integration</li>
+                    <li class="disabled">Advanced API Access</li>
+                </ul>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+
+            <!-- Pro Plan (Popular) -->
+            <div class="plan-card popular">
+                <span class="popular-badge">Most Popular</span>
+                <div class="plan-header">
+                    <h3>Professional</h3>
+                    <p>Perfect for growing teams and active businesses.</p>
+                    <div class="price">$29<span> / month</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>Up to 10 Active Projects</li>
+                    <li>Advanced Real-time Analytics</li>
+                    <li>Priority Email & Chat Support</li>
+                    <li>Custom Domain Integration</li>
+                    <li class="disabled">Dedicated Account Manager</li>
+                </ul>
+                <a href="#" class="cta-btn">Choose Professional</a>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Enterprise</h3>
+                    <p>Designed for large-scale operations and companies.</p>
+                    <div class="price">$99<span> / month</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>Unlimited Projects</li>
+                    <li>Enterprise-grade Analytics</li>
+                    <li>24/7 Dedicated Support</li>
+                    <li>Custom Domain Integration</li>
+                    <li>Dedicated Account Manager</li>
+                </ul>
+                <a href="#" class="cta-btn">Contact Sales</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
