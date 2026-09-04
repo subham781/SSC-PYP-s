@@ -151,6 +151,8 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
+            cursor: pointer;
+            border: none;
             transition: background-color 0.2s, color 0.2s;
         }
 
@@ -187,7 +189,7 @@
         <p class="subtitle">Transparent pricing tailored to scale with your business needs.</p>
 
         <div class="plans-grid">
-            <!-- Starter Plan -->
+            <!-- Starter Plan (Get Started -> opens VA Home) -->
             <div class="plan-card">
                 <div class="plan-header">
                     <h3>Starter</h3>
@@ -201,7 +203,7 @@
                     <li class="disabled">Custom Domain Integration</li>
                     <li class="disabled">Advanced API Access</li>
                 </ul>
-                <a href="#" class="cta-btn">Get Started</a>
+                <button class="cta-btn" onclick="sendToKodular('open_home')">Get Started</button>
             </div>
 
             <!-- Pro Plan (Popular) -->
@@ -219,7 +221,7 @@
                     <li>Custom Domain Integration</li>
                     <li class="disabled">Dedicated Account Manager</li>
                 </ul>
-                <a href="#" class="cta-btn">Choose Professional</a>
+                <button class="cta-btn" onclick="sendToKodular('purchase_professional')">Choose Professional</button>
             </div>
 
             <!-- Enterprise Plan -->
@@ -236,10 +238,21 @@
                     <li>Custom Domain Integration</li>
                     <li>Dedicated Account Manager</li>
                 </ul>
-                <a href="#" class="cta-btn">Contact Sales</a>
+                <button class="cta-btn" onclick="sendToKodular('purchase_enterprise')">Contact Sales</button>
             </div>
         </div>
     </div>
+
+    <script>
+        function sendToKodular(actionValue) {
+            // यह फंक्शन Kodular के WebViewString को ट्रिगर करेगा
+            if (window.AppInventor) {
+                window.AppInventor.setWebViewString(actionValue);
+            } else {
+                console.log("AppInventor interface not found. Action: " + actionValue);
+            }
+        }
+    </script>
 
 </body>
 </html>
